@@ -10,6 +10,11 @@ class Calculator {
     onPressNumber(number) {
         this.$currentPreview.textContent += number
     }
+
+    onPressOperation(operation) {
+        this.$previousPreview.textContent = `${this.$currentPreview.textContent} ${operation}`
+        this.$currentPreview.textContent = ''
+    }
 }
 
 const $previousPreview = document.querySelector('[data-previous-preview]')
@@ -27,12 +32,30 @@ const cal = new Calculator($previousPreview, $currentPreview)
 
 $numbers.forEach(($number) => {
     $number.addEventListener("click", (e) => {
-        console.log(e.target.textContent)
+        cal.onPressNumber(e.target.textContent)
     })
 })
 
 $operations.forEach(($operation) => {
     $operation.addEventListener("click", (e) => {
-        console.log(e.target.textContent)
+        switch ($operation) {
+            case $plus:
+                cal.onPressOperation("+")
+                break;
+            case $minus:
+                cal.onPressOperation("-")
+                break;
+            case $multiply:
+                cal.onPressOperation("X")
+                break;
+            case $divide:
+                cal.onPressOperation("÷")
+                break;
+            case $equal:
+                //
+                break;
+            default:
+                break;
+        }
     })
 })
