@@ -9,7 +9,7 @@
 - [x] 사칙연산 버튼 기능(onPressOperation) 출력 구현
 
 ### 2주차
-- [ ] 데이터 벨리데이션 1차 추가
+- [x] 데이터 벨리데이션 1차 추가
 - [ ] onEqual 기능 구현
 - [ ] onReset 기능 구현
 - [ ] onDelete 기능 구현
