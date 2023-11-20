@@ -3,12 +3,12 @@ class Calculator {
     $currentPreview
     previousOperation = ""
     currentOpenration = ""
-
+    
     constructor($previousPreview, $currentPreview) {
         this.$previousPreview = $previousPreview
         this.$currentPreview = $currentPreview
     }
-
+    
     onPressNumber(number) {
         if (number === "." && this.$currentPreview.textContent.length < 1) {
             return
@@ -26,11 +26,7 @@ class Calculator {
     }
     
     onEqual() {
-        if (
-            this.$currentPreview.textContent.length < 1 ||
-            this.$previousPreview.textContent.length < 1 ||
-            this.previousOperation.length < 1
-        ) {
+        if (this.$currentPreview.textContent.length < 1 || this.$previousPreview.textContent.length < 1 || this.previousOperation.length < 1) {
             return
         }
 
@@ -58,31 +54,19 @@ class Calculator {
     }
 
     handlePlus() {
-        return (
-            Number(this.$previousPreview.textContent.split(" ")[0])
-            + Number(this.$currentPreview.textContent)
-        )
+        return (Number(this.$previousPreview.textContent.split(" ")[0]) + Number(this.$currentPreview.textContent))
     }
 
     handleMinus() {
-        return (
-            Number(this.$previousPreview.textContent.split(" ")[0])
-            - Number(this.$currentPreview.textContent)
-        )
+        return (Number(this.$previousPreview.textContent.split(" ")[0]) - Number(this.$currentPreview.textContent))
     }
 
     handleMultiply() {
-        return (
-            Number(this.$previousPreview.textContent.split(" ")[0])
-            * Number(this.$currentPreview.textContent)
-        )
+        return (Number(this.$previousPreview.textContent.split(" ")[0]) * Number(this.$currentPreview.textContent))
     }
 
     handleDivide() {
-        return (
-            Number(this.$previousPreview.textContent.split(" ")[0])
-            / Number(this.$currentPreview.textContent)
-        )
+        return (Number(this.$previousPreview.textContent.split(" ")[0]) / Number(this.$currentPreview.textContent))
     }
 
     onReset() {
@@ -96,7 +80,6 @@ class Calculator {
         if (this.$currentPreview.textContent < 1) {
             return
         }
-
         this.$currentPreview.textContent = this.$currentPreview.textContent.slice(0, -1)
     }
 }
