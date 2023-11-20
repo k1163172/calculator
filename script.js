@@ -8,10 +8,16 @@ class Calculator {
     }
 
     onPressNumber(number) {
+        if (number === "." && this.$currentPreview.textContent.length < 1) {
+            return 
+        }
         this.$currentPreview.textContent += number
     }
 
     onPressOperation(operation) {
+        if (this.$currentPreview.textContent.length < 1) {
+            return
+        }
         this.$previousPreview.textContent = `${this.$currentPreview.textContent} ${operation}`
         this.$currentPreview.textContent = ''
     }
